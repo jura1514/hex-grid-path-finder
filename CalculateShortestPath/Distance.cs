@@ -186,13 +186,6 @@ namespace CalculateShortestPath
                 for (int j = 0; j < currentSpiral; j++)
                 {
                     count++;
-                    //DirectionDetails test = null;
-                    //if (count > 20 && Directions[i].Direction == HexDirection.Bottom && currentHex.X >= 2)
-                    //{
-                    //    test = new DirectionDetails();
-                    //    test.X = -1;
-                    //    test.Y = -1;
-                    //}
                     var nextHexNeighbor = GetHexNeighbor(currentHex, null ?? Directions[i], count);
                     hexesRing.Add(nextHexNeighbor);
                     currentHex = nextHexNeighbor;
