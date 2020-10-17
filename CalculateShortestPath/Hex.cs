@@ -1,13 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CalculateShortestPath
+﻿namespace CalculateShortestPath
 {
     public class Hex
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Name { get; set; }
+        public int X { get; }
+        public int Y { get; }
+        public int Step { get; }
+
+        public Hex(int x, int y, int step)
+        {
+            X = x;
+            Y = y;
+            Step = step;
+        }
+
+        public Hex GetHexNeighbor(DirectionDetails direction, int count)
+        {
+            return new Hex(X + direction.X, Y + direction.Y, count);
+        }
     }
 }
