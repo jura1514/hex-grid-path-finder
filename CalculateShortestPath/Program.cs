@@ -8,6 +8,9 @@ namespace CalculateShortestPath
     {
         static void Main(string[] args)
         {
+            //var search = new SearchAlgorithms();
+            //search.ReachTargetUsingDijkstarsAlgorithm(28, 32);
+
             var input = "Y";
             while (input?.ToUpper() == "Y")
             {

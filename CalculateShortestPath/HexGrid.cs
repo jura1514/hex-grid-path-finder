@@ -49,6 +49,7 @@ namespace CalculateShortestPath
             var hexesRing = new List<Hex>();
             var direction = Directions.GetDirection(HexDirection.Bottom);
 
+            // calculate the bottom hex with how far are you from center by multiplying it by spiral
             var hex = new Hex(center.X + direction.X * spiral, center.Y + direction.Y * spiral, count);
 
             for (int i = 0; i < Directions.List.Count; i++)

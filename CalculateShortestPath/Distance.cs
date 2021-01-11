@@ -56,10 +56,21 @@ namespace CalculateShortestPath
 
             foreach (var hex in neighbors.Where(x => x != null))
             {
+                // heuristic
                 var distanceX = hex.X - target.X;
                 var distanceY = hex.Y - target.Y;
+                // use Z for cube coordinates
+                // constraint x + y + z = 0
+                // for axial coordinates
+                // axial hex distance is derived from the Mahattan distance on cubes
+                var distanceZ = hex.Y + hex.X - target.Y - target.X;
 
                 int distance;
+
+                // improvements
+                // distance = Math.Abs(distanceX) + Math.Abs(distanceY) + Math.Abs(distanceZ) / 2;
+                // OR
+                // Math.Max( Math.Abs(distanceX), Math.Abs(distanceY), Math.Abs(distanceZ) )
 
                 if (distanceX < 0 != distanceY < 0)
                 {
@@ -72,6 +83,7 @@ namespace CalculateShortestPath
                 }
                 else
                 {
+                    // Manhattan distance
                     distance = Math.Abs(distanceX) + Math.Abs(distanceY);
                     if (distance <= closestDistance)
                     {
